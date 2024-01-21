@@ -1,5 +1,5 @@
 # Link Scraper
-Command line tool that scrapes links from list of urls provided at runtime.
+Command line tool that scrapes links from list of urls provided at runtime, and writes them into a csv.
 
 
 > python scraper.py https://www.google.com https://www.yotutube.com https://x.com
