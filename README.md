@@ -7,3 +7,10 @@ Command line tool that scrapes links from list of urls provided at runtime, and 
 or sometimes
 
 > python3 scraper.py https://www.google.com https://www.yotutube.com https://x.com
+
+Will require the following packages:
+> pip install requests
+> 
+> pip install html5lib
+> 
+> pip install bs4
