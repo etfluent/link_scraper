@@ -12,7 +12,7 @@ or sometimes
 python3 scraper.py https://www.google.com https://www.yotutube.com https://x.com
 ```
 
-Will require the following packages:
+Requires the following packages:
 
 ```
 pip install requests
