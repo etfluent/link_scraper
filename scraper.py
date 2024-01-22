@@ -4,7 +4,7 @@ import csv
 from bs4 import BeautifulSoup
 
 
-def scrape_links(url) -> list:
+def scrape_links(url: str) -> list:
     req = requests.get(url)
     soup = BeautifulSoup(req.text, 'html.parser')
     links = []
@@ -14,18 +14,18 @@ def scrape_links(url) -> list:
     return links
 
 
-def contains_links(url_list) -> bool:
+def contains_links(url_list: list) -> bool:
     return len(url_list) > 0
 
 
-def create_csv(url_dict) -> None:
+def create_csv(url_dict: dict) -> None:
     with open('url_csv.csv', 'w') as f:
         w = csv.DictWriter(f, url_dict.keys())
         w.writeheader()
         w.writerow(url_dict)
 
 
-def build_url_dict(url_list) -> dict:
+def build_url_dict(url_list: list) -> dict:
     url_dict = {}
     for base_link in url_list:
         scraped_links = scrape_links(base_link)
@@ -34,7 +34,7 @@ def build_url_dict(url_list) -> dict:
     return url_dict
 
 
-def main(urls) -> None:
+def main(urls: list) -> None:
     final_url_dict = build_url_dict(urls)
     create_csv(final_url_dict)
     print('Scraping Completed!')
