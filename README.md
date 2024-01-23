@@ -4,25 +4,25 @@ Command line tool that scrapes links from list of urls provided at runtime, and 
 ### To load csv into s3:
 
 ```
-python scraper.py load https://www.google.com https://www.yotutube.com https://x.com
+python scraper.py load <BUCKET_NAME> https://www.google.com https://www.yotutube.com https://x.com
 ```
 
 or sometimes
 
 ```
-python3 scraper.py load https://www.google.com https://www.yotutube.com https://x.com
+python3 scraper.py load <BUCKET_NAME> https://www.google.com https://www.yotutube.com https://x.com
 ```
 
 ### To keep csv local:
 
 ```
-python scraper.py f https://www.google.com https://www.yotutube.com https://x.com
+python scraper.py https://www.google.com https://www.yotutube.com https://x.com
 ```
 
 or sometimes
 
 ```
-python3 scraper.py f https://www.google.com https://www.yotutube.com https://x.com
+python3 scraper.py https://www.google.com https://www.yotutube.com https://x.com
 ```
 
 ### Requires the following packages:
