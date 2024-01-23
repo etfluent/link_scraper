@@ -46,5 +46,5 @@ def main(s3_load: str, urls: list) -> None:
         print('Upload Skipped.')
 
 
-main(s3_load=sys.argv[1], urls=sys.argv[2:])
-
+if __name__ == "__main__":
+    main(s3_load=sys.argv[1], urls=sys.argv[2:])
