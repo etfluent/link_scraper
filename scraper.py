@@ -2,6 +2,7 @@ import sys
 import requests
 import csv
 from bs4 import BeautifulSoup
+from bucket_loader import upload_csv
 
 
 def scrape_links(url: str) -> list:
@@ -34,11 +35,16 @@ def build_url_dict(url_list: list) -> dict:
     return url_dict
 
 
-def main(urls: list) -> None:
+def main(s3_load: str, urls: list) -> None:
     final_url_dict = build_url_dict(urls)
     create_csv(final_url_dict)
     print('Scraping Completed!')
+    if s3_load.lower() == 'load':
+        upload_csv()
+        print('Upload Completed!')
+    else:
+        print('Upload Skipped.')
 
 
-main(sys.argv[1:])
+main(s3_load=sys.argv[1], urls=sys.argv[2:])
 
