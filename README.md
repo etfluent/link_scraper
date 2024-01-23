@@ -31,4 +31,4 @@ pip install bs4
 ```
 pip install boto3
 ```
-Note: boto3 will require further setup. See their documentation for setup
+Note: boto3 will require further setup. See their [documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) for setup
