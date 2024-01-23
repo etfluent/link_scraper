@@ -27,7 +27,7 @@ pip install html5lib
 ```
 pip install bs4
 ```
-
+Uploading csv to s3 will require boto3:
 ```
 pip install boto3
 ```
