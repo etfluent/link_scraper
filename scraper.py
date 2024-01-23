@@ -35,16 +35,24 @@ def build_url_dict(url_list: list) -> dict:
     return url_dict
 
 
-def main(s3_load: str, urls: list) -> None:
+def scrape(urls: list) -> None:
     final_url_dict = build_url_dict(urls)
     create_csv(final_url_dict)
     print('Scraping Completed!')
+
+
+def main(cli_args: list) -> None:
+    s3_load = cli_args[0]
     if s3_load.lower() == 'load':
-        upload_csv()
-        print('Upload Completed!')
+        bucket = cli_args[1]
+        urls = cli_args[2:]
+        scrape(urls)
+        upload_csv(bucket)
     else:
-        print('Upload Skipped.')
+        urls = cli_args
+        scrape(urls)
+        print('Upload Skipped. Csv retained locally.')
 
 
 if __name__ == "__main__":
-    main(s3_load=sys.argv[1], urls=sys.argv[2:])
+    main(sys.argv[1:])
