@@ -13,7 +13,8 @@ python scraper.py load <BUCKET_NAME> https://www.google.com https://www.yotutube
 ```
 python scraper.py https://www.google.com https://www.yotutube.com https://x.com
 ```
-
+### Docker
+Dockerfile is provided. You will still need to configure AWS credentials in the container for uploading the csv via boto3 to work properly.
 ### Requires the following packages:
 
 ```
@@ -34,6 +35,3 @@ Uploading csv to s3 will require boto3:
 pip install boto3
 ```
 Note: boto3 will require further setup. See their [documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) for setup
-
-### Docker
-Docker image is provided with requirements pre-installed. You will still need to configure AWS credentials in the container for uploading the csv via boto3 to work properly.
