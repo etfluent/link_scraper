@@ -1,7 +1,7 @@
 # Link Scraper
 Command line tool that scrapes links from list of urls provided at runtime, and writes them into a csv. This csv has the option to be uploaded to an s3 bucket. Loading the file to s3 deletes the file locally as well.
 
-To load csv into s3:
+### To load csv into s3:
 
 ```
 python scraper.py load https://www.google.com https://www.yotutube.com https://x.com
@@ -13,7 +13,7 @@ or sometimes
 python3 scraper.py load https://www.google.com https://www.yotutube.com https://x.com
 ```
 
-To keep csv local:
+### To keep csv local:
 
 ```
 python scraper.py f https://www.google.com https://www.yotutube.com https://x.com
@@ -25,7 +25,7 @@ or sometimes
 python3 scraper.py f https://www.google.com https://www.yotutube.com https://x.com
 ```
 
-Requires the following packages:
+### Requires the following packages:
 
 ```
 pip install requests
