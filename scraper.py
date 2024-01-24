@@ -1,8 +1,10 @@
+import os
 import sys
 import requests
 import csv
+import bucket_loader
 from bs4 import BeautifulSoup
-from bucket_loader import upload_csv
+from constants import OUT_DIR, FILE_PATH
 
 
 def scrape_links(url: str) -> list:
@@ -20,10 +22,20 @@ def contains_links(url_list: list) -> bool:
 
 
 def create_csv(url_dict: dict) -> None:
-    with open('url_csv.csv', 'w') as f:
+    out_dir_exists = os.path.exists(OUT_DIR)
+    if not out_dir_exists:
+        os.makedirs(OUT_DIR)
+
+    with open(FILE_PATH, 'w') as f:
         w = csv.DictWriter(f, url_dict.keys())
         w.writeheader()
         w.writerow(url_dict)
+
+
+def clean_output() -> None:
+    for f in os.listdir(OUT_DIR):
+        os.remove(os.path.join(OUT_DIR, f))
+    os.rmdir(OUT_DIR)
 
 
 def build_url_dict(url_list: list) -> dict:
@@ -47,7 +59,7 @@ def main(cli_args: list) -> None:
         bucket = cli_args[1]
         urls = cli_args[2:]
         scrape(urls)
-        upload_csv(bucket)
+        bucket_loader.upload_csv(bucket)
     else:
         urls = cli_args
         scrape(urls)
