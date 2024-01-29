@@ -60,6 +60,7 @@ def main(cli_args: list) -> None:
         urls = cli_args[2:]
         scrape(urls)
         bucket_loader.upload_csv(bucket)
+        clean_output()
     else:
         urls = cli_args
         scrape(urls)
